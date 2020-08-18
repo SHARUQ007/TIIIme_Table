@@ -1,0 +1,107 @@
+<%- include("partials/header") %>
+<div class="centerText">
+  <div>
+
+    <br>
+    <h2 class="texter1">CURRENT CLASS</h2>
+    <% if(i==404){ %>
+    <div>
+      <div class="card">
+        <div class="card-block">
+          <h5 class="card-titler" style="color:black;">No Current Classes</h5>
+        </div>
+      </div>
+    </div>
+    <%} else {%>
+    <div>
+      <div class="card">
+        <div class="card-block">
+          <%let timer1;%>
+          <%  timer1=dayTimeTabel[i].hrs+dayTimeTabel[i].subject.duration-1;%>
+          <h5 class="card-titler" style="color:black;"><%= dayTimeTabel[i].subject.name  %></h5>
+          <div class="meta">
+            <a>Timing:  <%= dayTimeTabel[i].hrs %>:00<%= dayTimeTabel[i].apm %>-<%= timer  %>:50<%= dayTimeTabel[i].apm %></a>
+          </div>
+          <div class="card-text">
+          <%= dayTimeTabel[i].subject.remarks  %>
+          </div>
+          <% if (dayTimeTabel[i].subject.meetlink!=" "){ %>
+        <a href="<%= dayTimeTabel[i].subject.meetlink %>"><button class="btn btn-info btn-sm">Meet Link</button></a>
+        <% }if (dayTimeTabel[i].subject.youtubelink!=" "){ %>
+          <a href="<%= dayTimeTabel[i].subject.youtubelink %>"><button class="btn btn-danger btn-sm">Youtube</button></a>
+        <% }if (dayTimeTabel[i].subject.drivelink!=" "){ %>
+            <a href="<%= dayTimeTabel[i].subject.drivelink %>"><button class="btn btn-success btn-sm">Drive Link</button></a>
+          <%}%>
+        </div>
+        <div class="meta">
+          <a><%=dayTimeTabel[i].subject.courseType%> Course</a>
+        </div>
+      </div>
+    </div>
+    <% }%>
+
+    <br>
+    <a href="#features"> <button type="button" class="btn btn-outline-light" style="font-size:18px; padding:12px 30px;; border-width:1.5px;">View Today's Schedule</button> </a>
+  </div>
+</div>
+</header>
+
+</div>
+
+
+<!-- top portion ends here -->
+<!-- middle section starts here -->
+
+<section id="features" class="featureC">
+  <div class="features-text">
+    <h1 class="ftexter" style="font-family: sans-serif;">___</h1>
+    <h1 class="ftexter">Today's Schedule</h1>
+    <br><br><br>
+  </div>
+  <div class="row">
+    <%let timer;%>
+  <% for(let i=0;i<dayTimeTabel.length;i++){ %>
+    <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+      <div class="card">
+        <div class="card-img-top" >
+          <div>
+            <hr>        <%  timer=dayTimeTabel[i].hrs+dayTimeTabel[i].subject.duration-1;%>
+            <h4><%= dayTimeTabel[i].hrs %>:00<%= dayTimeTabel[i].apm %> - <%= timer  %>:50<%= dayTimeTabel[i].apm %></h4>
+          </div>
+          </div>
+        <div class="card-block">
+          <h4 class="card-title"><%= dayTimeTabel[i].subject.name %> </h4>
+          <div class="meta">
+            <a><%= dayTimeTabel[i].subject.faculty %></a>
+          </div>
+          <div class="card-text">
+            <%= dayTimeTabel[i].subject.remarks %>
+          </div>
+          <% if (dayTimeTabel[i].subject.meetlink!=" "){ %>
+        <a href="<%= dayTimeTabel[i].subject.meetlink %>"><button class="btn btn-info btn-sm">Meet Link</button></a>
+        <% }if (dayTimeTabel[i].subject.youtubelink!=" "){ %>
+          <a href="<%= dayTimeTabel[i].subject.youtubelink %>"><button class="btn btn-danger btn-sm">Youtube</button></a>
+        <% }if (dayTimeTabel[i].subject.drivelink!=" "){ %>
+            <a href="<%= dayTimeTabel[i].subject.drivelink %>"><button class="btn btn-success btn-sm">Drive Link</button></a>
+          <%}%>
+        </div>
+        <div class="meta">
+          <a><%= dayTimeTabel[i].subject.courseType %> Course</a>
+        </div>
+      </div>
+    </div>
+  <% } %>
+
+
+
+  </div>
+
+
+
+
+
+
+</section>
+
+<!-- middle section ends here -->
+<%- include("partials/footer") -%>

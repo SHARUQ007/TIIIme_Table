@@ -1,0 +1,59 @@
+<%- include("partials/header") %>
+
+<br><br><br>
+  <section id="features" class="featureC">
+    <div class="features-text">
+    <center>
+      <h1 class="ftexter" style="visibility:hidden;">____________</h1>
+   <h1 class="ftexter">Courses</h1>
+  </center>
+
+        <br><br><br>
+    </div>
+    <div class="row">
+    <% for(let i=0;i<allSubjects.length;i++){ %>
+      <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+        <div class="card">
+          <div class="card-img-top" >
+            <div>
+              <hr>
+
+            </div>
+            </div>
+          <div class="card-block">
+            <h4 class="card-title"> <%= allSubjects[i].name %></h4>
+            <div class="meta">
+              <a><%= allSubjects[i].faculty %></a>
+            </div>
+            <div class="card-text">
+              <%= allSubjects[i].remarks %>
+            </div>
+            <% if (allSubjects[i].meetlink!=" "){ %>
+          <a href="<%= allSubjects[i].meetlink %>"><button class="btn btn-info btn-sm">Meet Link</button></a>
+          <% }if (allSubjects[i].youtubelink!=" "){ %>
+            <a href="<%= allSubjects[i].youtubelink %>"><button class="btn btn-danger btn-sm">Youtube</button></a>
+          <% }if (allSubjects[i].drivelink!=" "){ %>
+              <a href="<%= allSubjects[i].drivelink %>"><button class="btn btn-success btn-sm">Drive Link</button></a>
+            <%}%>
+            <a><%= allSubjects[i].meetlink %></a>
+          </div>
+          <div class="meta">
+            <a><%= allSubjects[i].courseType %> Course</a>
+          </div>
+        </div>
+      </div>
+<% } %>
+
+
+
+    </div>
+
+
+    </div>
+
+
+  </section>
+
+</header>
+  <!-- middle section ends here -->
+  <%- include("partials/footer") -%>
